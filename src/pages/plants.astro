@@ -1,0 +1,88 @@
+---
+import Footer from '../components/Footer.astro';
+
+const plants = [
+  {
+    name: 'Peace Lily',
+    img: 'https://png.pngtree.com/png-clipart/20220306/original/pngtree-peace-lily-flowers-clipart-illustration-png-image_7401387.png',
+    desc: 'Air-purifying and low maintenance.',
+  },
+  {
+    name: 'Snake Plant',
+    img: 'https://png.pngtree.com/png-clipart/20220707/ourmid/pngtree-realistic-snake-plant-in-hand-drawn-style-png-image_5744918.png',
+    desc: 'Perfect for indoors with minimal light.',
+  },
+  {
+    name: 'Fiddle Leaf Fig',
+    img: 'https://media.istockphoto.com/id/1138172851/vector/indoor-plant-watercolor-illustration-home-plants.jpg?s=612x612&w=0&k=20&c=UzlUYPlx3TYX4iGwwjOAC3ZKEdEhU9cji9Kdwo8Rpf8=',
+    desc: 'Adds elegance to any corner.',
+  },
+  {
+    name: 'Spider Plant',
+    img: 'https://indorenursery.com/wp-content/uploads/2022/05/013A1622.jpg',
+    desc: 'A resilient plant great for beginners.',
+  },
+  {
+    name: 'Aloe Vera',
+    img: 'https://m.media-amazon.com/images/I/51JC9C2DZKL.jpg',
+    desc: 'Soothing and medicinal properties.',
+  },
+  {
+    name: 'Areca Palm',
+    img: 'https://paradiseflowers.in/wp-content/uploads/2021/08/Erica-Pum.jpg',
+    desc: 'Brings a tropical feel to interiors.',
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Plants – Boulty Nest</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+     <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- Back Navigation -->
+    <div class="bg-white shadow px-6 py-4 sticky top-0 z-50 flex items-center">
+      <a href="/" class="text-green-700 font-semibold text-lg hover:underline">
+        ← Back
+      </a>
+    </div>
+
+    <!-- Title Section -->
+    <section class="bg-green-50 py-12 px-6 text-center">
+      <h1 class="text-4xl font-extrabold text-green-800 mb-2">Explore Our Full Collection</h1>
+      <p class="text-lg text-gray-600">Handpicked plants to transform your living space.</p>
+    </section>
+
+    <!-- Cards Grid -->
+    <section class="py-20 px-8 md:px-20 bg-white">
+      <h2 class="text-3xl font-bold text-center mb-12 text-green-700">All Our Plants</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {plants.map((plant) => (
+          <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300">
+            <img src={plant.img} alt={plant.name} class="mx-auto h-40 mb-4 transition-transform duration-300 hover:scale-105" />
+            <h3 class="text-xl font-semibold text-green-800 mb-1">{plant.name}</h3>
+            <p class="text-gray-600">{plant.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>

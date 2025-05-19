@@ -1,0 +1,72 @@
+---
+import FeaturedPlants from '../components/FeaturedPlants.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HeroSection from './HeroSection.astro';
+import Testimonials from '../components/Testimonials.astro';
+import TreeViewer from '../components/TreeViewer.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import NewsletterSignup from '../components/NewsLetter.astro';
+import PlantCareTips from '../components/PlantCare.astro';
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenNest – Nature at Your Doorstep</title>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-800 font-sans">
+
+    <!-- Header -->
+    <div class="sticky top-0 z-50 bg-white shadow-md">
+      <Header />
+    </div>
+
+    <!-- Hero -->
+    <HeroSection />
+
+    <!-- Featured Plants -->
+    <FeaturedPlants />
+
+    <!-- Why Choose Us -->
+    <WhyChooseUs />
+
+    <!-- Testimonials -->
+        <Testimonials />
+
+    <!-- Plant Care Tips -->
+    <PlantCareTips />
+
+    <!-- Newsletter Signup -->
+    <NewsletterSignup />
+    <!-- Tree Viewer
+    <TreeViewer /> -->
+
+    <!-- Image Gallery (Optional - can be linked to Instagram) -->
+    <ImageGallery />
+
+    <!-- Final CTA -->
+<FinalCTA />
+
+
+    <!-- Footer -->
+    <Footer />
+    
+  </body>
+</html>
