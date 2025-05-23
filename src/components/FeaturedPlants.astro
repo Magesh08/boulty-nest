@@ -1,22 +1,29 @@
-<!-- Featured Plants Section -->
+---
+const plants = [
+  {
+    name: 'Peace Lily',
+    img: 'https://png.pngtree.com/png-clipart/20220306/original/pngtree-peace-lily-flowers-clipart-illustration-png-image_7401387.png',
+    desc: 'Air-purifying and low maintenance.',
+  },
+  {
+    name: 'Snake Plant',
+    img: 'https://png.pngtree.com/png-clipart/20220707/ourmid/pngtree-realistic-snake-plant-in-hand-drawn-style-png-image_5744918.png',
+    desc: 'Perfect for indoors with minimal light.',
+  },
+  {
+    name: 'Fiddle Leaf Fig',
+    img: 'https://media.istockphoto.com/id/1138172851/vector/indoor-plant-watercolor-illustration-home-plants.jpg?s=612x612&w=0&k=20&c=UzlUYPlx3TYX4iGwwjOAC3ZKEdEhU9cji9Kdwo8Rpf8=',
+    desc: 'Adds elegance to any corner.',
+  }
+];
+---
+
 <section id="plants" class="py-20 px-8 md:px-20 bg-white">
   <h2 class="text-4xl font-bold text-center mb-12">Featured Plants</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-    {[{
-      name: 'Peace Lily',
-      img: 'https://png.pngtree.com/png-clipart/20220306/original/pngtree-peace-lily-flowers-clipart-illustration-png-image_7401387.png',
-      desc: 'Air-purifying and low maintenance.',
-    }, {
-      name: 'Snake Plant',
-      img: 'https://png.pngtree.com/png-clipart/20220707/ourmid/pngtree-realistic-snake-plant-in-hand-drawn-style-png-image_5744918.png',
-      desc: 'Perfect for indoors with minimal light.',
-    }, {
-      name: 'Fiddle Leaf Fig',
-      img: 'https://media.istockphoto.com/id/1138172851/vector/indoor-plant-watercolor-illustration-home-plants.jpg?s=612x612&w=0&k=20&c=UzlUYPlx3TYX4iGwwjOAC3ZKEdEhU9cji9Kdwo8Rpf8=',
-      desc: 'Adds elegance to any corner.',
-    }].map((plant) => (
-      <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300">
+    {plants.map((plant) => (
+      <div class="animate-on-scroll bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300">
         <img src={plant.img} alt={plant.name} class="mx-auto h-40 mb-4 transition-transform duration-300 hover:scale-105" />
         <h3 class="text-xl font-semibold">{plant.name}</h3>
         <p class="text-gray-600">{plant.desc}</p>
@@ -24,7 +31,6 @@
     ))}
   </div>
 
-  <!-- See All Button -->
   <div class="text-center mt-12">
     <a
       href="/plants"
@@ -33,4 +39,49 @@
       🌿 See All Plants
     </a>
   </div>
+
+  <!-- Animation CSS -->
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
+
+  <!-- Animation Script -->
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </section>
