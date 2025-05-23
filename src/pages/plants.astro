@@ -56,11 +56,22 @@ const plants = [
 
   <body class="bg-white text-gray-800 font-sans">
     <!-- Back Navigation -->
-    <div class="bg-white shadow px-6 py-4 sticky top-0 z-50 flex items-center">
-      <a href="/" class="text-green-700 font-semibold text-lg hover:underline">
-        ← Back
-      </a>
-    </div>
+ <div class="bg-white shadow px-6 py-4 sticky top-0 z-50 flex items-center">
+  <!-- <button
+    onclick="history.back()"
+    class="text-green-700 font-semibold text-lg hover:underline cursor-pointer bg-transparent border-none p-0"
+    aria-label="Go back"
+  >
+    ← Back
+  </button> -->
+  <a
+  href="/#plants"
+  class="text-green-700 font-semibold text-lg hover:underline"
+>
+  ← Back
+</a>
+</div>
+
 
     <!-- Title Section -->
     <section class="bg-green-50 py-12 px-6 text-center">
@@ -82,7 +93,6 @@ const plants = [
         ))}
       </div>
     </section>
-
     <Footer />
   </body>
 </html>
